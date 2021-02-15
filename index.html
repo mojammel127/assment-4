@@ -50,11 +50,15 @@
             </div>
             <div class="input-group f-class">
                 <div>
-                    <label for="">First Class ($150)</label>
-                    <input class="inp-style inp-width" type="number" name="">
+                    <label for="">First Class $ <span id="firstClassAmaunt">150</span></label>
+                    <input id="firstClassInput" class="inp-width" type="number" value="1" name="">
                 </div>
                 <div class="plus-minus-btn">
-                    <p>+ -</p>
+                    <p>
+                        <button id="firstClassButtonIncrise"> + </button>
+                        <button id="firstClassButtonDecrease"> - </button>
+
+                    </p>
                 </div>
             </div>
             
@@ -103,6 +107,20 @@
             <p>Lorem ipsum dolor sit amet consectetur adipisicingelit. Provident voluptatibus quam fuga laborumalias veniam libero autem quasi maxime ullam vero nama imi dolor, architecto ab facilis eaque deserunt nobise voluptatibus quam</p>
         </div>
     </section>
+
+
+    <script>
+        document.getElementById('firstClassButtonIncrise').addEventListener('click', function(){
+         const firstInput = document.getElementById('firstClassInput');
+         const countFirstClass = parseInt(firstInput.value)
+         const newInput = countFirstClass + 1;
+         firstInput.value = newInput;
+         const totalPrice = newInput * 150;
+         document.getElementById('firstClassAmaunt').innerText = totalPrice;
+        })
+
+
+    </script>
 
     <!--Thank You-->
 </body>
