@@ -64,11 +64,14 @@
             
             <div class="input-group f-class">
                 <div>
-                    <label for="">Economy ($100)</label>
-                    <input class="inp-style inp-width" type="number" name="">
+                    <label for="">Economy $ <span id="economyClassAmaunt">100</span></label>
+                    <input id="economyClassInput" class="inp-width" type="number" value="1" name="">
                 </div>
                 <div class="plus-minus-btn">
-                    <p> <span>+</span> <span>-</span> </p>
+                    <p> 
+                        <button id="economyClassButtonIncrise"> + </button>
+                        <button id="economyClassButtonDecrease"> - </button>
+                     </p>
                 </div>
             </div>
             <div class="calculations">
@@ -111,13 +114,109 @@
 
     <script>
         document.getElementById('firstClassButtonIncrise').addEventListener('click', function(){
-         const firstInput = document.getElementById('firstClassInput');
-         const countFirstClass = parseInt(firstInput.value)
+            firstTecketplus();
+        
+        });
+
+        function firstTecketplus(){
+            const positiveInput = document.getElementById('firstClassInput');
+         const countFirstClass = parseInt(positiveInput.value);
          const newInput = countFirstClass + 1;
-         firstInput.value = newInput;
+         positiveInput.value = newInput;
          const totalPrice = newInput * 150;
          document.getElementById('firstClassAmaunt').innerText = totalPrice;
-        })
+        }
+
+        document.getElementById('firstClassButtonDecrease').addEventListener('click',function(){
+            firstTecketMainas();
+        });
+
+        function firstTecketMainas(isIncrease){
+                const positiveInput = document.getElementById('firstClassInput');
+            const countFirstClass = parseInt(positiveInput.value);
+            const newInput = countFirstClass - 1;
+            positiveInput.value = newInput;
+            const totalPrice = newInput * 150;
+            document.getElementById('firstClassAmaunt').innerText = totalPrice;
+        }
+        // First class ticket done
+
+
+
+        //economy
+
+        document.getElementById('economyClassButtonIncrise').addEventListener('click', function(){
+            economyTecketplus();
+        
+        });
+
+        function economyTecketplus(){
+            const positiveInput = document.getElementById('economyClassInput');
+         const countEconomyClass = parseInt(positiveInput.value);
+         const newInput = countEconomyClass + 1;
+         positiveInput.value = newInput;
+         const totalPrice = newInput * 100;
+         document.getElementById('economyClassAmaunt').innerText = totalPrice;
+        }
+
+        document.getElementById('economyClassButtonDecrease').addEventListener('click',function(){
+            economyTecketMainas();
+        });
+
+        function economyTecketMainas(){
+                const positiveInput = document.getElementById('economyClassInput');
+            const countEconomyClass = parseInt(positiveInput.value);
+            const newInput = countEconomyClass - 1;
+            positiveInput.value = newInput;
+            const totalPrice = newInput * 100;
+            document.getElementById('economyClassAmaunt').innerText = totalPrice;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // document.getElementById('firstClassButtonDecrease').addEventListener('click',function(){
+        //  const positiveInput = document.getElementById('firstClassInput');
+        //  const countFirstClass = parseInt(positiveInput.value);
+        //  const newInput = countFirstClass - 1;
+        //  positiveInput.value = newInput;
+        //  const totalPrice = newInput * 150;
+        // document.getElementById('firstClassAmaunt').innerText = totalPrice;
+
+        // })
+
+
 
 
     </script>
