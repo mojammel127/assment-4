@@ -27,7 +27,7 @@
     </header>
 
     <!--Booking Section-->
-    <main class="main-content container">
+    <section id="booking-form" class="main-content container">
         <div class="booking-form">
             <h3>Booking Flights</h3>
             <div class="input-group">
@@ -87,7 +87,7 @@
 
                 <div class="amount">
                     <div class="left">
-                        <p>with add 10% VAT</p>
+                        <p>With add 10% VAT</p>
                     </div>
                     <div class="right">
                         <p>$ <span id="vat">00</span></p>
@@ -103,16 +103,20 @@
                     </div>
                 </div>
             </div>
-            <button class="btn-style">Book Now</button>
+            <button id="booking" class="btn-style">Book Now</button>
         </div>
-
         <div class="booking-content">
             <h1>discover <br> around the world</h1>
             <p>Lorem ipsum dolor sit amet consectetur adipisicingelit. Provident voluptatibus quam fuga laborumalias veniam libero autem quasi maxime ullam vero nama imi dolor, architecto ab facilis eaque deserunt nobise voluptatibus quam</p>
         </div>
     </section>
 
-
+    <section>
+        <h1 id="confarm">
+            <img src="images/11.png" alt="">
+        </h1>
+    </section>
+   
     <script>
         //first class plus button
         document.getElementById('firstClassButtonIncrise').addEventListener('click', function(){
@@ -203,56 +207,19 @@
             const totalPrice = subtotal + vat ;
             document.getElementById('totalPrice').innerText =totalPrice;
         }
+        
+        // booking button
+
+        const booking = document.getElementById("booking");
+        booking.addEventListener('click', function(){
+            const bookingFrom = document.getElementById("booking-form");
+            bookingFrom.style.display = "none";
+
+            const confarm = document.getElementById("confarm");
+            confarm.style.display = "block";
+        })
 
         //end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        // document.getElementById('firstClassButtonDecrease').addEventListener('click',function(){
-        //  const positiveInput = document.getElementById('firstClassInput');
-        //  const countFirstClass = parseInt(positiveInput.value);
-        //  const newInput = countFirstClass - 1;
-        //  positiveInput.value = newInput;
-        //  const totalPrice = newInput * 150;
-        // document.getElementById('firstClassAmaunt').innerText = totalPrice;
-
-        // })
-
-
-
-
     </script>
 
     <!--Thank You-->

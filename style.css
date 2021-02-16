@@ -12,6 +12,7 @@ body{
     background-position: center center;
     background-attachment: scroll;
     background-size: cover;
+    height: 750px;
 }
 
 nav{
@@ -119,4 +120,13 @@ nav ul li a:hover, a.active{
 .amount{
     display: flex;
     justify-content: space-between;
+}
+
+#confarm{
+    display: none;
+}
+
+#confarm img{
+    margin-left: 320px;
+    margin-top: 150px;
 }
