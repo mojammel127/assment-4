@@ -51,7 +51,7 @@
             <div class="input-group f-class">
                 <div>
                     <label for="">First Class $ <span id="firstClassAmaunt">150</span></label>
-                    <input id="firstClassInput" class="inp-width" type="number" value="1" name="">
+                    <input id="firstClassInput" class="inp-width" type="number" value="0" name="">
                 </div>
                 <div class="plus-minus-btn">
                     <p>
@@ -65,7 +65,7 @@
             <div class="input-group f-class">
                 <div>
                     <label for="">Economy $ <span id="economyClassAmaunt">100</span></label>
-                    <input id="economyClassInput" class="inp-width" type="number" value="1" name="">
+                    <input id="economyClassInput" class="inp-width" type="number" value="0" name="">
                 </div>
                 <div class="plus-minus-btn">
                     <p> 
@@ -80,16 +80,17 @@
                         <p>Subtotal</p>
                     </div>
                     <div class="right">
-                        <p>$500</p>
+                        <p>$ <span id="subtotal">000</span></p>
+                        
                     </div>
                 </div>
 
                 <div class="amount">
                     <div class="left">
-                        <p>Charge 10% VAT</p>
+                        <p>with add 10% VAT</p>
                     </div>
                     <div class="right">
-                        <p>$50</p>
+                        <p>$ <span id="vat">00</span></p>
                     </div>
                 </div>
                 <hr>
@@ -98,7 +99,7 @@
                         <h4>Total</h4>
                     </div>
                     <div class="right">
-                        <p>$550</p>
+                        <p>$ <span id="totalPrice">000</span></p>
                     </div>
                 </div>
             </div>
@@ -113,8 +114,10 @@
 
 
     <script>
+        //first class plus button
         document.getElementById('firstClassButtonIncrise').addEventListener('click', function(){
             firstTecketplus();
+            calculatTotal();
         
         });
 
@@ -126,9 +129,11 @@
          const totalPrice = newInput * 150;
          document.getElementById('firstClassAmaunt').innerText = totalPrice;
         }
+        // first class minus button
 
         document.getElementById('firstClassButtonDecrease').addEventListener('click',function(){
             firstTecketMainas();
+            calculatTotal();
         });
 
         function firstTecketMainas(isIncrease){
@@ -143,10 +148,12 @@
 
 
 
-        //economy
+        //economy plus button
 
         document.getElementById('economyClassButtonIncrise').addEventListener('click', function(){
             economyTecketplus();
+            calculatTotal();
+            
         
         });
 
@@ -158,9 +165,12 @@
          const totalPrice = newInput * 100;
          document.getElementById('economyClassAmaunt').innerText = totalPrice;
         }
+        //economy minus button
 
         document.getElementById('economyClassButtonDecrease').addEventListener('click',function(){
             economyTecketMainas();
+            calculatTotal();
+            
         });
 
         function economyTecketMainas(){
@@ -171,6 +181,30 @@
             const totalPrice = newInput * 100;
             document.getElementById('economyClassAmaunt').innerText = totalPrice;
         }
+
+        //economy end
+
+
+        //subtotal + vat + total button
+
+        function calculatTotal(){
+            const economyInput = document.getElementById('economyClassInput').value;
+            const economyTotalCount = parseInt(economyInput.value);
+
+            const firstInput = document.getElementById('firstClassInput').value;
+            const firstTotalCount = parseInt(firstInput.value);
+
+            const subtotal = economyInput * 100 + firstInput * 150 ;
+            document.getElementById('subtotal').innerText = subtotal;
+
+            const vat = subtotal * 0.1;
+            document.getElementById('vat').innerText = vat;
+
+            const totalPrice = subtotal + vat ;
+            document.getElementById('totalPrice').innerText =totalPrice;
+        }
+
+        //end
 
 
 
